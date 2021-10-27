@@ -25,7 +25,7 @@ jobs:
       - name: use papeloto
         uses: papeloto/action-zip@v1
         with:
-          files: main
+          files: ./main
           dest: result.zip
       
       - name: setup telegram
