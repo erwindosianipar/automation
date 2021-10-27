@@ -21,9 +21,6 @@ jobs:
       - name: build go
         run: go build -o main .
 
-      - name: convert to zip
-        uses: actions/checkout@v2
-
       - name: setup telegram
         uses: appleboy/telegram-action@master
         with:
