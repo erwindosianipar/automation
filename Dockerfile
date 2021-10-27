@@ -1,4 +1,5 @@
-# This docker file not include for postgre database that use in this project
+# docker build -t [repository/aplication:tag] [path to file]
+# docker run --name [container name] -d -p 8080:8080 [repository/aplication:tag]
 
 FROM golang:alpine
 
@@ -12,7 +13,7 @@ RUN go mod tidy
 
 ADD . .
 
-RUN go build -o main .
+RUN go build -o /bin/automation .
 
 WORKDIR /
 
@@ -20,4 +21,4 @@ RUN rm -r /work
 
 EXPOSE 8080
 
-CMD ./main
+CMD /bin/automation
