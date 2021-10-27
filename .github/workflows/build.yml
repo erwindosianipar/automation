@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: build executable file
-    runs-on: [ macos-latest, ubuntu-latest ]
+    runs-on: [self-hosted, ubuntu-latest]
 
     steps:
       - name: setup go
