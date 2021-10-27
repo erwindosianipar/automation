@@ -21,10 +21,13 @@ jobs:
       - name: build go
         run: go build -o main .
 
-      - name: setup telegram
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: docker image
-          document: main
+jobs:
+  build:
+      name: setup telegram
+      runs-on: ubuntu-latest
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: docker image
+        document: main
