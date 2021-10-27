@@ -30,7 +30,7 @@ jobs:
         run: docker login -u $USERNAME -p $PASSWORD
       
       - name: build docker image
-        run: docker build -t erwindosianipar/automation:$(date +%s) .
+        run: docker build -t erwindosianipar/automation .
         
       - name: push docker image
         run: docker push erwindosianipar/automation
