@@ -4,29 +4,31 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: build executable file
-    runs-on: macos-latest
+    - name: build executable file
+      runs-on: macos-latest
 
-    steps:
-      - name: setup go
-        uses: actions/checkout@v2
+      steps:
+        - name: setup go
+          uses: actions/checkout@v2
 
-      - name: setup go version
-        uses: actions/setup-go@v2
-        with:
-          gohostos: darwin
-          goos: darwin
-          go-version: 1.17.2
-          
-      - name: build go
-        run: go build -o main .
-        
-  build:
-      name: setup telegram
+        - name: setup go version
+          uses: actions/setup-go@v2
+          with:
+            gohostos: darwin
+            goos: darwin
+            go-version: 1.17.2
+            
+        - name: build go
+          run: go build -o main .
+
+    - name: setup telegram
       runs-on: ubuntu-latest
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: docker image
-        document: main
+
+      steps:
+      - name: use telegram engine
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: docker image
+          document: main
