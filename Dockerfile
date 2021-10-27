@@ -1,5 +1,5 @@
-# docker build -t [repository/aplication:tag] [path to file]
-# docker run --name [container name] -d -p 8080:8080 [docker image]
+# docker build -t [repository/application:tag] [path to file]
+# docker run -d -p [port]:[port] [repository/application:tag]
 
 FROM golang:alpine
 
