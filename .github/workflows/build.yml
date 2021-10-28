@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: erwindosianipar/automation:$(date +%Y%m%d%H%M)
+          images: erwindosianipar/automation:${{ steps.meta.outputs.date }}
           
       - name: docker build push
         uses: docker/build-push-action@v2
