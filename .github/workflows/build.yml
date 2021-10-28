@@ -45,6 +45,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+        run: echo ${{ steps.meta.outputs }}
           
       # NOTIFY TO TELEGRAM
       - name: use telegram engine
