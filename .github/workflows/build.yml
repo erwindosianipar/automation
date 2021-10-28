@@ -1,6 +1,9 @@
 name: perform ci and cd
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -20,7 +23,7 @@ jobs:
         
       # BUILD EXECUTABLE GO FILE
       - name: build go
-        run: env GOOS=darwin GOARH=amd64 go build -v ./...
+        run: env GOOS=darwin GOARH=amd64 go build -o automation ./...
         
       # LOGIN THEN BUILD AND PUSH TO DOCKER HUB
       - name: login to docker hub
@@ -33,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: erwindosianipar/automation:${{ steps.meta.outputs.date }}
+          images: automation:v1
           
       - name: docker build push
         uses: docker/build-push-action@v2
