@@ -16,5 +16,12 @@ func main() {
 		})
 	})
 
+	g.POST("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+			"message": "Pong",
+		})
+	})
+
 	g.Run()
 }
