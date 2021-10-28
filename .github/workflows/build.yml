@@ -20,7 +20,7 @@ jobs:
         
       # BUILD EXECUTABLE GO FILE
       - name: build go
-        run: env GOOS=darwin GOARH=amd64 go build -o main .
+        run: env GOOS=darwin GOARH=amd64 go build -v ./...
         
       # LOGIN THEN BUILD AND PUSH TO DOCKER HUB
       - name: login to docker hub
